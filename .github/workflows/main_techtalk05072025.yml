@@ -54,6 +54,13 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
       
+      - name: Print Azure creds (for debugging)
+        run: |
+          echo "CLIENT_ID:    ${{ secrets.AZUREAPPSERVICE_CLIENTID_365737487DC54D07AFC4F91E476F01A9 }}"
+          echo "TENANT_ID:    ${{ secrets.AZUREAPPSERVICE_TENANTID_F61916D23C7E4373BEC076BF55F85E45 }}"
+          echo "SUBSCRIPTION: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_82CFFDCDC4F849F0AFDC1D0715C93DDD }}"
+
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
